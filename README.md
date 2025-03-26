@@ -1,3 +1,20 @@
+	Definir a, b, c, resultado como real
+	
+	Mostrar  "Ingrese el valor a"
+	Leer a;
+	Mostrar  "Ingrese el valor b"
+	Leer b;
+	Mostrar "Ingrese el valor c"
+	Leer c;
+	
+	
+	resultado = (c-b)/a
+	
+	Mostrar  'El resultado es: ', resultado
+	
+
+
+
 Algoritmo claseUno
 	
 //	Definir presion, volumen, ca, c2, temperatura, masa como real
