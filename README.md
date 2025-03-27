@@ -1,4 +1,9 @@
-	Definir a, b, c, resultado como real
+
+ https://www.youtube.com/watch?v=L78wusszwlk&list=PL0kzc2XH45IbYi4YAcYMPAhV1_Vj1UjyK
+
+ https://www.youtube.com/watch?v=L78wusszwlk&list=PL0kzc2XH45IbYi4YAcYMPAhV1_Vj1UjyK
+ 
+ Definir a, b, c, resultado como real
 	
 	Mostrar  "Ingrese el valor a"
 	Leer a;
