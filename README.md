@@ -1,4 +1,20 @@
-
+    Definir n, i, j Como Entero
+	
+    Escribir "Introduce el número de filas de la pirámide: "
+    Leer n
+	
+    Para i = 1 Hasta n Con Paso 1
+        
+		Para j = 1 Hasta (n - i) Con Paso 1
+            Escribir "_" Sin Saltar
+        FinPara
+		
+        Para j = 1 Hasta (2 * i - 1) Con Paso 1
+            Escribir "*" Sin Saltar
+        FinPara
+		
+        Escribir ""
+    FinPara
  https://www.youtube.com/watch?v=L78wusszwlk&list=PL0kzc2XH45IbYi4YAcYMPAhV1_Vj1UjyK
 
  https://www.youtube.com/watch?v=L78wusszwlk&list=PL0kzc2XH45IbYi4YAcYMPAhV1_Vj1UjyK
