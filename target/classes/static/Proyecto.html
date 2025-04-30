@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hola mundo</h1>
+<ul id="lista-clientes"></ul>
+
+<script>
+    // Llamada a la API del backend
+    fetch('http://localhost:8080/clientes') // Asegurate de que esta URL coincida con la del backend
+        .then(response => response.json())
+        .then(data => {
+            const lista = document.getElementById('lista-clientes');
+            data.forEach(cliente => {
+                const item = document.createElement('li');
+                item.textContent = `ID: ${cliente.idCliente}, Nombre: ${cliente.nombre}, Dirección: ${cliente.direccion}, Mail: ${cliente.mail}`;
+                lista.appendChild(item);
+            });
+        })
+        .catch(error => {
+            console.error('Error al obtener los clientes:', error);
+        });
+</script>
+</body>
+</html>
