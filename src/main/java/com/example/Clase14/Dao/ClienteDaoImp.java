@@ -19,7 +19,6 @@ public class ClienteDaoImp implements ClienteDao {
 
     @Override
     public List<Cliente> getClientes() {
-
         String query = "from Cliente";
         return entityManager.createQuery(query).getResultList();
     }
