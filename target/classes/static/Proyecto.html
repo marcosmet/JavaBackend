@@ -52,5 +52,84 @@
     });
 </script>
 
+
+<h2>Lista de Productos</h2>
+<button onclick="cargarProductos()">Actualizar Productos</button>
+<table border="1" id="tablaProductos">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Stock</th>
+        <th>Precio</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Aquí se insertarán los productos dinámicamente -->
+    </tbody>
+</table>
+
+
+
+<script>
+    // Cargar productos al cargar la página
+    window.onload = function() {
+        cargarProductos();
+    };
+
+    function cargarProductos() {
+        fetch('http://localhost:8081/api/producto')
+            .then(response => response.json())
+            .then(data => {
+                const tabla = document.querySelector('#tablaProductos tbody');
+                tabla.innerHTML = ''; // Limpiar tabla
+                data.forEach(producto => {
+                    const fila = document.createElement('tr');
+                    fila.innerHTML = `
+                        <td>${producto.id}</td>
+                        <td>${producto.nombre}</td>
+                        <td>${producto.stock}</td>
+                        <td>$${producto.precio.toFixed(2)}</td>
+                    `;
+                    tabla.appendChild(fila);
+                });
+            })
+            .catch(error => {
+                console.error('Error al cargar los productos:', error);
+            });
+    }
+
+    // Recargar tabla después de agregar un producto
+    document.getElementById('productoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const producto = {
+            nombre: document.getElementById('nombre').value,
+            stock: parseInt(document.getElementById('stock').value),
+            precio: parseFloat(document.getElementById('precio').value)
+        };
+
+        fetch('http://localhost:8081/api/producto', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(producto)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Producto guardado exitosamente');
+                document.getElementById('productoForm').reset();
+                cargarProductos(); // Recargar la lista de productos
+            } else {
+                alert('Error al guardar el producto');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error en la conexión');
+        });
+    });
+</script>
 </body>
 </html>
